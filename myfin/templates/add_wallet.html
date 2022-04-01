@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    
+ <form method='GET' action='/'>
+        <p><input value='Повернутися на головну' type='SUBMIT'></p>
+ </form>
+ <br>
+ 
+    <h2>Новий гаманець:</h2>
+
+    <form method='POST' action='/add_wallet/'>
+         {% csrf_token %}
+         <table>
+            <tr><td>Назва:</td><td><input name='wallet_name' type='TEXT' width='30' value='Гаманець'></td>
+
+            <tr><td>Валюта:</td>
+                <td>            
+                    <select name="currency">
+                      <option value="UAH">UAH</option>
+                      <option value="USD">USD</option>
+                      <option value="EUR">EUR</option>
+                    </select>
+            Баланс:
+            <input name='ballance' type='number' value=0>
+            <input value='Додати' type='SUBMIT'></td>
+        </table>
+    </form>
+
+
+{% endblock %}

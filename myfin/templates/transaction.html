@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <form method='GET' action='/'>
+          <p><input value='Повернутися на головну' type='SUBMIT'></p>
+    </form>
+    
+    <br>
+<h2>Транзакції:</h2>
+
+
+<table>
+<tr>
+    <td>
+ <form method='POST' action='/transaction/'>   
+   {% csrf_token %}         
+         Гаманець:<select name="id_wallet">
+         <option id = 0 value=0>Немає відбору
+      {% for w_row in el_wallets %} 
+          <option id = '{{ w_row.id }}' value='{{ w_row.id}}' {% if w_row.id == filtr_id_wallet %} selected {% endif %}>{{ w_row.name }}                       
+      {% endfor %}
+       </select>  
+       </td><td>
+       
+           Період з: <input type="date" name="date_start" id="date_start"  value='{{ date_start }}'>
+         </td>
+         <td>
+           до <input type="date" name="date_end" id="date_end" value='{{ date_end }}' >
+            </td></tr><tr><td> 
+           
+      Категорія:<select name="id_category">
+      <option id = 0 value=0>Немає відбору
+      {% for w_row in el_categories %} 
+          <option id = '{{ w_row.id }}' value='{{ w_row.id}}' {% if w_row.id == filtr_id_category %} selected {% endif %} >{{ w_row.name }}                       
+      {% endfor %}
+       </select> 
+       </td><td>
+     
+   
+       
+      <input  type="hidden" id="actions" name="actions" value='transaction_filtr' />
+      <input  type="hidden" id="id" name="id" value=0 />
+
+      <input value='Відібрати транзакції' type='SUBMIT'>
+ </form>
+ </td>
+ <td>
+  <form method='GET' action='/transaction/'>           
+       <input value='Показати всі' type='SUBMIT'>
+  </form>
+  </td>
+  </tr>
+  </table>
+ <br>
+ 
+ <table>
+  <tr>
+      <th>Дата</th> <th>Гаманець</th> <th>Категорія</th> <th>Сума</th> <th>Валюта</th>             
+  </tr>
+     {% for w_row in el_transaction %}
+         <tr>
+                  <td>{{ w_row.date }}</td>
+                  <td>{{ w_row.wallet }}</td>             
+                  <td>{{ w_row.category }}</td>          
+                  <td>{{ w_row.suma }}</td>  
+                  <td>{{ w_row.currency }}</td> 
+             <td>
+                 <form method='POST' action='/transaction/'>
+                 {% csrf_token %}  
+                      <input  type="hidden" id="id" name="id" value='{{ w_row.id }}' />
+                      <input  type="hidden" id="id_wallet" name="id_wallet" value='{{ w_row.id_wallet }}' />
+                       <input  type="hidden" id="sum_transaction" name="sum_transaction" value='{{ w_row.summa }}' />
+                      <input  type="hidden" id="actions" name="actions" value='transaction_delete' />
+                     <p><input value='Видалити' type='SUBMIT'></p>
+                   
+                 </form>
+             </td>                                
+         </tr>
+     {% endfor %}
+ </table>
+ 
+
+
+{% endblock %}

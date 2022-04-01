@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>Зміна категорії</h2>
+
+   <form method='POST' action='/categories/'>
+   {% csrf_token %}
+        <input  type="hidden" id="id" name="id" value='{{ the_id }}' />
+        <input  type="hidden" id="actions" name="actions" value='category_edit' />
+        Назва:<input name='category_name' type='TEXT' width='30' value='{{ the_name }}' /> 
+        Напрямок:
+         <select name="category_direction">
+           <option value="Profit" {% if the_direction == 'Profit' %} selected {% endif %} >Дохід</option>
+           <option value="Expense" {% if the_direction != 'Profit' %} selected {% endif %}>Витрата</option>
+         </select>
+                
+      <input value='Змінити' type='SUBMIT'>
+   </form>
+    <form method='GET' action='/categories/'>
+    {% csrf_token %}
+          <p><input value='Повернутися назад' type='SUBMIT'></p>
+    </form>
+
+{% endblock %}

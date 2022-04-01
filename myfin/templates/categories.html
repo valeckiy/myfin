@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form method='GET' action='/'>
+       <p><input value='Повернутися на головну' type='SUBMIT'></p>
+</form>
+<br>
+       
+<h2>Категорії доходів та витрат</h2>
+
+    <table>
+        <tr>
+            <th>Категорія</th><th>Напрямок</th>
+           
+        </tr>
+        {% for w_row in el_categories %}
+            <tr>
+                <td>{{ w_row.name }}</td>
+                
+                {% if w_row.direction == 'Profit' %} <td>Дохід</td> 
+                {% else %} <td>Витрата</td> 
+                {% endif %}   
+                <td>
+                    <form method='POST' action='/edit_categories/'>
+                     {% csrf_token %}
+                         <input  type="hidden" id="id" name="id" value='{{ w_row.id }}' />
+                         <input  type="hidden" id="name" name="name" width='30' value='{{ w_row.name }}' />
+                         <input  type="hidden" id="direction" name="direction" value='{{ w_row.direction }}' />
+                        <p><input value='Редагувати' type='SUBMIT'></p>
+                    </form>
+                </td>   
+                <td>
+                    <form method='POST' action='/categories/'>
+                    {% csrf_token %}
+                         <input  type="hidden" id="id" name="id" value='{{ w_row.id }}' />
+                         <input  type="hidden" id="actions" name="actions" value='category_delete' />
+                        <p><input value='Видалити' type='SUBMIT'></p>
+                    </form>
+                </td>                               
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+   <form method='POST' action='/categories/'>
+        {% csrf_token %}
+        <input  type="hidden" id="id" name="id" value=0 />
+        <input  type="hidden" id="actions" name="actions" value='category_add' />
+        Нова категорія:<input name='category_name' type='TEXT' width='30' value='Категорія'> 
+        Тип категорії:
+         <select name="category_direction">
+           <option value="Profit">Дохід</option>
+           <option value="Expense">Витрата</option>
+         </select>
+                
+      <input value='Додати' type='SUBMIT'>
+   </form>
+
+
+
+{% endblock %}
+
