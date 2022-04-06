@@ -122,7 +122,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/home/ubuntu/home/myfin/static/',
+    '/home/ubuntu/home/myfin/myfin/static/',
 ]
 
 #STATICFILES_DIRS = [
