@@ -48,7 +48,8 @@ def index(request):
     el_wallets = DB.list_wallets(cursor)
     
     time = datetime.now()
-    date_start = time.strftime("%Y-%m-01")
+    timeStart = date(datetime.today().year, 1, 1)
+    date_start = timeStart.strftime("%Y-%m-01")
     date_end = time.strftime("%Y-%m-%d")
     
     el_transaction = DB.list_transaction(cursor,date_start,date_end,5,0) 
