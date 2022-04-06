@@ -122,7 +122,7 @@ USE_TZ = True
 #    '/home/ubuntu/home/myfin/myfin/static/',
 #]
 
-STATIC_URL = BASE_DIR / "myfin/static"
+STATIC_URL = "/home/ubuntu/home/myfin/myfin/static/"
 
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'myfin/static'),
