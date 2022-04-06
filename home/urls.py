@@ -8,4 +8,5 @@ urlpatterns = [
     path('categories/', views.categories, name='categories'),
     path('edit_categories/', views.edit_categories, name='edit_categories'),
     path('transaction/', views.transaction, name='transaction'),
+    path('admin/', admin.site.urls),
 ]
