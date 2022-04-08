@@ -8,7 +8,7 @@ admin.site.register(Categories)
 admin.site.register(Transactions)
 
 class WalletsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('name', 'currency')
 
 # Register the admin class with the associated model
 admin.site.register(Wallets, WalletsAdmin)
