@@ -6,7 +6,8 @@ class Wallets(models.Model):
     
 class Ballance(models.Model):
     id_wallet = models.IntegerField()
-    total = models.DecimalField(max_digits=12, decimal_places=2)    
+    total = models.DecimalField(max_digits=12, decimal_places=2)   
+  
     
 class Categories(models.Model):
     name = models.CharField(max_length=45)
@@ -17,3 +18,6 @@ class Transactions(models.Model):
     suma = models.DecimalField( max_digits=12, decimal_places=2)  
     category = models.IntegerField()   
     date = models.DateTimeField()  
+    
+    
+  
