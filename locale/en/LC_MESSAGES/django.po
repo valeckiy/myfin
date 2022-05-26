@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-21 10:47+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "English"
+msgstr ""
+
+msgid "Українська"
+msgstr ""
+
+msgid "text_logo"
+msgstr "Simple financial accounting"
+
+msgid "create_wallet"
+msgstr "New wallet"
+
+msgid "category_managment"
+msgstr "Categories"
+
+msgid "transaction_managment"
+msgstr "Transactions"
+
+msgid "logged_as"
+msgstr "Logged as"
+
+msgid "logout"
+msgstr "Log out"
+
+msgid "first_name"
+msgstr "First name"
+
+msgid "last_name"
+msgstr "Last name"
+
+# base.html
+msgid "main_login_or_register"
+msgstr "You need to log in or register to display information"
+
+msgid "log_in"
+msgstr "Log in"
+
+msgid "sign_up"
+msgstr "Sign up"
+
+# index.html
+msgid "go_main"
+msgstr "Back to home"
+
+msgid "your_finances"
+msgstr "Your finances"
+
+msgid "name"
+msgstr "Name"
+
+msgid "wallet"
+msgstr "Wallet"
+
+msgid "balance"
+msgstr "Balance"
+
+msgid "currency"
+msgstr "Currency"
+
+# Transaction
+msgid "add_transaction"
+msgstr "Add transaction"
+
+msgid "recent_transactions"
+msgstr "Recent transactions"
+
+msgid "date"
+msgstr "Date"
+
+msgid "category"
+msgstr "Category"
+
+msgid "sum"
+msgstr "Sum"
+
+msgid "comment"
+msgstr "Note"
+
+
+msgid "delete"
+msgstr "Delete"
+
+msgid "add_new_Profit"
+msgstr "Add a new cash flow"
+
+msgid "add_new_Expense"
+msgstr "Add new spending money"
+
+msgid "title_exchange"
+msgstr "Add a new money transfer between wallets"
+
+msgid "exchange"
+msgstr "Money transfer"
+
+msgid "start_balance"
+msgstr "Balance"
+
+# Wallet
+msgid "delete_wallet"
+msgstr "Delete wallet"
+
+msgid "wallet_managment"
+msgstr "Wallets"
+
+msgid "new_wallet"
+msgstr "New wallet"
+
+msgid "edit_wallet"
+msgstr "Edit wallet"
+
+msgid "qwestion_delete_wallet"
+msgstr "You really want to delete the wallet?"
+
+msgid "go_wallet"
+msgstr "Return to the list of wallets"
+
+# login / signup
+msgid "login_title"
+msgstr "Please enter data for log in"
+
+msgid "login_name"
+msgstr "Name (Login)"
+
+msgid "login_password"
+msgstr "Password"
+
+# Categories
+msgid "Category_title"
+msgstr "Categories of income and expenses"
+
+msgid "new_category"
+msgstr "New category"
+
+msgid "edit_category"
+msgstr "Edit category"
+
+msgid "go_category"
+msgstr "Return to the list of categories"
+
+msgid "direction"
+msgstr "Direction"
+
+msgid "profit"
+msgstr "Profit"
+
+msgid "cost"
+msgstr "Cost"
+
+msgid "excange"
+msgstr "Excange"
+
+msgid "wallet_from"
+msgstr "From wallet"
+
+msgid "wallet_to"
+msgstr "To wallet"
+
+msgid "sum_from"
+msgstr "Sum -"
+
+msgid "sum_to"
+msgstr "Sum +"
+
+msgid "course"
+msgstr "Cross-course"
+
+#reports
+msgid "cost_currancy_last_month"
+msgstr "Expense report for the last 7 days"
+
+
+# others
+msgid "add"
+msgstr "Add"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "close"
+msgstr "Close"
+
+msgid "qwestion_delete_transaction"
+msgstr "You really want to delete the transaction?"
+
+msgid "qwestion_delete_category"
+msgstr "You really want to delete the category?"
+
+msgid "yes"
+msgstr "Yes"
+
+msgid "no"
+msgstr "No"
+
+msgid "no_selection"
+msgstr "No selection"
+
+msgid "show_all"
+msgstr "Show all"
+
+msgid "select_transactions"
+msgstr "Select transactions"
+
+msgid "about_project"
+msgstr "About project"
+
+msgid "email_exist"
+msgstr "The e:mail already exists"
+
+msgid "profil"
+msgstr "Your profil"
+
+msgid "edit_profil"
+msgstr "Edit profil"
+
+msgid "go_profil"
+msgstr "Go to profil"
+
+msgid "main_currancy"
+msgstr "Base currency"
+
+msgid "UAH"
+msgstr "₴"
+
+msgid "USD"
+msgstr "$"
+
+msgid "EUR"
+msgstr "€"
+
+# menu
+msgid "menu_do"
+msgstr "Action"
+
+# reports
+msgid "reports"
+msgstr "Reports"
+
+msgid "type_report"
+msgstr "Report"
+
+msgid "cost_category"
+msgstr "Costs by category"
+
+msgid "profit_category"
+msgstr "Profit by category"
+
+msgid "cost_profit_day"
+msgstr "Daily income and expenses"
+
+msgid "cost_profit_month"
+msgstr "Monthly income and expenses"
+
+msgid "cost_profit_year"
+msgstr "Annual income and expenses"
+
+msgid "total_cost"
+msgstr "Total costs"
+
+msgid "total_profit"
+msgstr "Total profit"
+
+msgid "date_start"
+msgstr "Period from"
+
+msgid "date_end"
+msgstr "on"
+
+msgid "run_report"
+msgstr "Run"
+
+msgid "cost_day_graph"
+msgstr "Daily expenses (last 7 days)"
+
+msgid "profit_day_graph"
+msgstr "Daily earnings (last 7 days)"
+
+msgid "cost_month_graph"
+msgstr "Monthly expenses"
+
+msgid "profit_month_graph"
+msgstr "Monthly income"
+
+msgid "cost_year_graph"
+msgstr "Annual costs"
+
+msgid "profit_year_graph"
+msgstr "Annual income"
+
+msgid "period_last_six_month"
+msgstr "Last 6 month"
+
+msgid "period_this_years"
+msgstr "This year"
+
+msgid "period_last_years"
+msgstr "Last year"
+
+msgid "show_transaction"
+msgstr "Show transaction"

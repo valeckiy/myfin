@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
+{% block body %}
+
+<!-- add form go main -->
+<div id="divtable">
+   <div class="divtr">       
+     <div class="divtd" style="width:100px"> 
+       <form method='GET' action='/'>
+              <input value='{% translate "go_main" %}' type='SUBMIT'>
+       </form>
+     </div>   
+    <div class="divtd" > 
+       <form method='GET' action='/{{ LANGUAGE_CODE }}/user/'>
+             <input value='{% translate "go_profil" %}' type='SUBMIT'>
+       </form>
+    </div>
+     </div>
+  </div>
+</div>  
+
+<p><h2>{% translate "edit_profil" %}</h2></p>
+
+<div id="divtable">
+    <div class="divtr">       
+      <div class="divtdl" style="padding:5px; text-align:right;" > 
+       	<form method="post" action='/{{ LANGUAGE_CODE }}/edit_profil/'>
+			         {% csrf_token %}
+		         
+			         {{ user_form.as_p  }}
+			         {{ profile_form.as_p  }}
+
+       		<input value='{% translate "edit" %}' type='SUBMIT' >    
+       	</form>
+     </div>
+  </div>
+</div> 
+
+{% endblock %}

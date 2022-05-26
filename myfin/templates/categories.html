@@ -1,62 +1,134 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
 {% block body %}
 
-<form method='GET' action='/'>
-       <p><input value='Повернутися на головну' type='SUBMIT'></p>
-</form>
-<br>
-       
-<h2>Категорії доходів та витрат</h2>
+<script src="{% static 'js/my-fin.js' %}" ></script>
 
-    <table>
-        <tr>
-            <th>Категорія</th><th>Напрямок</th>
+
+
+
+{% if user.is_authenticated %}
+
+<div class="row" >
+     <div class="col-sm-12 col-md-8 col-lg-6">
+
+        <p><h2>{% translate "Category_title" %}</h2></p>
+        <!-- add form categories -->
+         <div id="divtable">         
+           <div class="divtr">            
+             <div class="divth" >{% translate "profit" %}</div>            
+        
+           </div>
            
-        </tr>
-        {% for w_row in el_categories %}
-            <tr>
-                <td>{{ w_row.name }}</td>
-                
-                {% if w_row.direction == 'Profit' %} <td>Дохід</td> 
-                {% else %} <td>Витрата</td> 
-                {% endif %}   
-                <td>
-                    <form method='POST' action='/edit_categories/'>
-                     {% csrf_token %}
-                         <input  type="hidden" id="id" name="id" value='{{ w_row.id }}' />
-                         <input  type="hidden" id="name" name="name" width='30' value='{{ w_row.name }}' />
-                         <input  type="hidden" id="direction" name="direction" value='{{ w_row.direction }}' />
-                        <p><input value='Редагувати' type='SUBMIT'></p>
-                    </form>
-                </td>   
-                <td>
-                    <form method='POST' action='/categories/'>
-                    {% csrf_token %}
-                         <input  type="hidden" id="id" name="id" value='{{ w_row.id }}' />
-                         <input  type="hidden" id="actions" name="actions" value='category_delete' />
-                        <p><input value='Видалити' type='SUBMIT'></p>
-                    </form>
-                </td>                               
-            </tr>
-        {% endfor %}
-    </table>
-    <br>
-   <form method='POST' action='/categories/'>
-        {% csrf_token %}
-        <input  type="hidden" id="id" name="id" value=0 />
-        <input  type="hidden" id="actions" name="actions" value='category_add' />
-        Нова категорія:<input name='category_name' type='TEXT' width='30' value='Категорія'> 
-        Тип категорії:
-         <select name="category_direction">
-           <option value="Profit">Дохід</option>
-           <option value="Expense">Витрата</option>
-         </select>
-                
-      <input value='Додати' type='SUBMIT'>
-   </form>
+           {% for w_row in el_categories_profit %}
+           
+           <div class="divtr">     
+                 
+                <div class="divtd_no_border" style="width:45px;padding-left:10px;padding-top:5px">     
+                     <img width="32px" src="/static/icon/category/{{ w_row.image }}"  title="{{ w_row.name }}" alt="" />
+                </div>
+                 <div style="padding-top:9px">{{ w_row.name }}</div>          
+                   
+                  <div class="divtd" style="width:30px;border-left:0px;border-right:0px;">
+             
+                        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown"> 
+                              <a data-toggle="dropdown" href="#"> <img width="30px" src="/static/icon/button_down.png" title="" alt=""/></a>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/edit_categories/?id={{ w_row.id }}&name={{ w_row.name }}
+                                &direction={{ w_row.direction }}&image_l={{ w_row.image }}">{% translate "edit" %}</a></li>
+                                
+                                <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/qwestion/?id={{ w_row.id }}
+                                &form_qwestion=1&text_qwestion=qwestion_delete_category
+                                &actions=category_delete&url_post=/categories/">{% translate "delete" %}</a></li>
+                              <li style="text-align:center;">------------------------- </li>
+                              <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/transaction/?id_category={{ w_row.id }}">{% translate "show_transaction" %}</a></li>                                
+                              </ul>
+                            </li>
+                          </ul> 
+                        </nav>     
+                  </div>  
+               </div>
+            {% endfor %}
+         </div>
+ 
+         <br>
+ 
+         <div id="divtable">         
+           <div class="divtr">             
+             <div class="divth" >{% translate "cost" %}</div>                
+     
+          </div> 
+           
+           {% for w_row in el_categories_expense %}
+           
+           <div class="divtr">     
+             
+                 <div class="divtd_no_border" style="width:45px;padding-left:10px;padding-top:5px">     
+                     <img width="32px" src="/static/icon/category/{{ w_row.image }}"  title="{{ w_row.name }}" />
+                 </div>
+                 <div style="padding-top:9px">{{ w_row.name }}</div> 
+           
+                <div class="divtd" style="width:30px;border-left:0px;border-right:0px;">
+           
+                      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                        <ul class="navbar-nav">
+                          <li class="nav-item dropdown"> 
+                            <a data-toggle="dropdown" href="#"> <img width="30px" src="/static/icon/button_down.png" title="" alt=""/></a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/edit_categories/?id={{ w_row.id }}&name={{ w_row.name }}
+                              &direction={{ w_row.direction }}&image_l={{ w_row.image }}">{% translate "edit" %}</a></li>
+                              
+                              <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/qwestion/?id={{ w_row.id }}
+                              &form_qwestion=1&text_qwestion=qwestion_delete_category
+                              &actions=category_delete&url_post=/categories/">{% translate "delete" %}</a></li>
+                              <li style="text-align:center;">------------------------- </li>
+                              <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/transaction/?id_category={{ w_row.id }}">{% translate "show_transaction" %}</a></li>
+                            </ul>
+                          </li>
+                        </ul> 
+                      </nav>     
+                </div>       
 
+           </div>
+           {% endfor %}
+          
+        </div>
+    </div>
 
+<!-- add form new category -->
+
+    <div class="col-sm-12 col-md-8 col-lg-6" style="padding-top:0px;">
+     <p><h4>{% translate "new_category" %}</h4></p>
+         <div id="divtable" >
+              <div  style="border:0px;padding:10px;"> 
+                 <div>         
+                    <form method="post" action='/{{ LANGUAGE_CODE }}/add_category/'>  
+                        {% csrf_token %}   
+                        {{ form_add_category.as_p }}          
+                        <div style="padding-left:30px;height:32px;"><img  style="border: 1px solid #555;" width="32px" height="32px" id="img_to" name="img_to" src="/static/icon/blank.png"  />
+                        <span style="padding-left:4.2em;"><input value='{% translate "add" %}' type='SUBMIT' > </span></div>  
+                    </form>
+                 </div>            
+             </div>
+        <div  style="padding:10px;border:0px;" >
+           {% for img in imgs %}                   
+               <input  type="hidden"  value='{{ img }}' />
+               <a href="#" onclick="SelectImage('{{ img }}','category');return false;"><img style="padding:8px;" src="/static/icon/category/{{ img }}"</input></a>                
+           {% endfor%}
+       </div>
+    </div>
+         		
+    </div>
+</div>
+
+  
+{% endif %} 
 
 {% endblock %}
 

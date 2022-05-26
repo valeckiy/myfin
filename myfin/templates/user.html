@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
+      
+{% block body %}
+
+<!-- add form go main -->
+<div id="divtable">
+   <div class="divtr">       
+     <div class="divtdl" style="padding:5px;" > 
+       <form method='GET' action='/'>
+              <input value='{% translate "go_main" %}' type='SUBMIT'>
+       </form>
+     </div>
+  </div>
+</div>  
+
+<p><h2>{% translate "profil" %}</h2></p>
+   
+<div id="divtable">
+   <div class="divtr">       
+     <div class="divtdl" >   
+      
+		<p><b>{% translate "username" %}:</b> {{ user.username }}</p>
+		<p><b>{% translate "email" %}: </b>{{ user.email }} </p>
+		<p><b>{% translate "first_name" %}:</b> {{ user.first_name }} </p>
+		<p><b>{% translate "last_name" %}:</b> {{ user.last_name }} </p>
+				  		
+		<p><b>{% translate "main_currancy" %}:</b> {{ user.profile.currency }}</p>
+		
+		
+		<p><form method='GET' action='/{{ LANGUAGE_CODE }}/edit_profil/'>
+				<button type="submit" style="padding:5px;text-align:right;" >{% translate "edit" %}</button>
+		</form></p>
+
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

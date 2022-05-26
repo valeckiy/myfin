@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
+{% block body %}    
+
+<p><h2>{{ form_qwestion.text_qwestion.value }}</h2></p>
+
+<!-- add form qwestion -->
+<div id="divtable">
+    <div class="divtr">       
+      <div class="divtdl" style="padding:5px;" > 
+      <p>
+       	<form method="post" action='/{{ LANGUAGE_CODE }}/qwestion/'>
+       		{% csrf_token %}
+       		{{ form_qwestion}}
+       		<input value='{% translate "yes" %}' type='SUBMIT' >    
+       	</form>
+       </p>	
+     </div>
+     <div class="divtdl" style="padding:5px;" > 
+      <p>
+         <form method='GET' action='/{{ LANGUAGE_CODE }}{{ form_qwestion.url_post.value }}'>
+                <p><input value='{% translate "no" %}' type='SUBMIT'></p>
+         </form>
+      </p>   
+     </div>
+
+  </div>
+</div> 
+
+
+{% endblock %}

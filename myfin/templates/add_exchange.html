@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+  
+
+{% block body %}
+
+<script src="{% static 'js/my-fin.js' %}" ></script>
+        
+        
+<!-- add form go main -->    
+<div id="divtable">
+   <div class="divtr">       
+     <div class="divtdl" style="padding:5px;" > 
+       <form method='GET' action='/'>
+              <input value='{% translate "go_main" %}' type='SUBMIT'>
+       </form>
+     </div>
+  </div>
+</div>   
+
+<p><h2>{% translate title_exchange %}</h2></p>
+
+<!-- add transaction form --> 
+<div id="divtable">
+    <div class="divtr" style="min-width:100px;max-width:50%;text-align:right;">       
+      <div class="divtdl" style="padding:7px 0px 0px 5px;" > 
+          	<form method="POST" action='/{{ LANGUAGE_CODE }}/add_exchange/'>
+          		{% csrf_token %}
+          		
+          		 <p>
+          		 {{ form_add_exchange.wallet_from.label }} 
+          		 {{ form_add_exchange.wallet_from }}
+          		 </p>
+
+          		 <p>
+          		 {{ form_add_exchange.wallet_to.label }} 
+          		 {{ form_add_exchange.wallet_to }}
+          		 </p>
+
+          		 <p>
+          		 {{ form_add_exchange.sum_transaction_from.label }} 
+           		 {{ form_add_exchange.sum_transaction_from }}
+          		 {{ form_add_exchange.currency_from }}
+          		 
+          		 </p>
+
+          		 <p>
+          		 
+          		 <label for='id_sum_transaction_to'>{{ form_add_exchange.sum_transaction_to.label }} </label>
+           		 {{ form_add_exchange.sum_transaction_to }}
+          		 {{ form_add_exchange.currency_to }}          		 
+          
+                  </p>
+        
+         		 <p>
+                  <label for='id_course'>{{ form_add_exchange.course.label }} </label> 
+          		 {{ form_add_exchange.course }}		 
+          		 </p>  
+          		<p style="min-width:320px;max-width:50%;text-align:right;"><input value='{% translate "add" %}' type='SUBMIT' >    </p>  
+          		
+          	</form>
+     </div>
+  </div>
+</div>   
+
+{% endblock %}

@@ -1,0 +1,187 @@
+body {
+  font-family:      Verdana, Geneva, Arial, sans-serif;
+  font-size:        medium;
+  #background-color: tan;
+  color: #000000;
+  margin-top:       1%;
+  margin-bottom:    5%;
+  margin-left:      10%;
+  margin-right:     10%;
+  padding:          10px 10px 10px 10px;
+     max-width: 75%;
+      margin: 0 auto;
+      padding: 0;
+
+}
+a {
+  text-decoration:  none; 
+  font-weight:      600; 
+}
+a:hover {
+  text-decoration:  underline;
+}
+a img {
+  border:           0;
+}
+h2 {
+  font-size:        150%;
+}
+
+.copyright {
+  font-size:        75%;
+  font-style:       italic;
+}
+.slogan {
+  font-size:        75%;
+  font-style:       italic;
+}
+.confirmentry {
+  font-weight:      600; 
+}
+
+
+/*** Inputs ***/
+input[type=text] {
+  font-size:        100%;
+  width:            14em;
+}
+input[type=date] {
+  font-size:        100%;
+  width:            14em;
+}
+input[type=number] {
+  font-size:        100%;
+  width:            14em;
+}
+input[type=submit] {
+  font-size:        100%;
+}
+select {
+  font-size:        100%;
+  width:            14em;
+}
+
+#id_id.special-input {
+  width:            85%;
+}
+
+label {
+  display: inline-block;
+  width:            8em;
+  margin: 0;
+  padding:0;
+}
+
+#id_currency_from,#id_currency_to {
+  width:            3em;
+}
+
+
+#id_sum_transaction_from,#id_sum_transaction_to {
+  width:            8.7em;
+}
+
+#id_email {
+  width:            12em;
+  font-size: 110%;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+
+}
+.icon{
+	height: 30px;
+	padding:2px;
+	vertical-align: middle;
+	height:30px
+}	
+
+
+button!importam {
+
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+	vertical-align: middle;
+	border: 1px solid #909090;
+
+	font-size: 110%;
+}
+
+#divtable {
+    display: table;
+	background-color: #ebf2fa;
+	/***#e9f0f7;***/   
+	/***#B4CFEC;***/
+	padding: 5px;
+	width:99%;
+	border:             1px solid #909090;
+	padding:            5px 5px 2px;
+	border-collapse:    collapse;
+	vertical-align: middle;
+}
+
+.divth {
+    display: table-cell;
+    padding: 5px;
+    margin: 5px;	
+	vertical-align: middle;
+    text-align:       center;
+	font-weight: bold;
+	border:             1px solid #909090;
+} 
+.divtr {
+    display: table-row;
+	border:             1px solid #909090;
+}
+.divtd {
+    display: table-cell;
+    padding: 0px 3px 0px 3px;
+	border: 1px solid #909090;
+	height:5px
+} 
+
+.divtdl {
+    float: left;
+	padding: 3px;
+} 
+
+.divtdr {
+	text-align:right;
+	vertical-align: middle;
+	padding: 5px;
+	margin-top: 10px;
+	min-width:100px;
+	height:40px	;
+} 
+
+#divtable_no_border {
+    display: table;
+	padding: 0px;
+	vertical-align: middle;
+	border:             0px!important;
+}
+
+.divtr_no_border {
+    display: table-row;
+	border:             0px;
+	border-spacing: 0;
+}
+
+.divtd_no_border {
+    float: left;
+	border-left:             0px;
+    border-spacing: 0;
+
+} 
+
+
+
+.bg-light {
+  background-color: transparent !important;
+}  
+
+.p_field {
+  text-align:right;
+  padding:2px;"
+}  

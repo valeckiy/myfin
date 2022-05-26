@@ -2,13 +2,102 @@
 <!doctype html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
         <title>{{ the_title }}</title>
-        <link rel="stylesheet" href="{% static 'hf.css' %}" />
+        
+        
+        
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="{% static 'js/popper.min.js' %}" ></script>   
+        <script src="{% static 'js/bootstrap.min.js' %}" ></script>   
+        
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     </head>
     <body>
     
-        {% block body %}
+    {% load i18n %}
+    {% get_current_language as LANGUAGE_CODE %}
+    
 
-        {% endblock %}
-    </body>
+    <div id="divtable">
+    <div class="divtr" >       
+        <div class="divtdl" ><img  src="{% static 'logo300x150.png' %}" alt="Oblik.pro"></div>   
+        <div  class="divtd_no_border" > 
+            <div class="container">
+              <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <ul class="navbar-nav">
+                  <li class="nav-item active"><a class="nav-link" href="/{{ LANGUAGE_CODE }}">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/{{ LANGUAGE_CODE }}/wallets">{% translate "wallet_managment" %}</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/{{ LANGUAGE_CODE }}/categories">{% translate "category_managment" %}</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/{{ LANGUAGE_CODE }}/transaction">{% translate "transaction_managment" %}</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/{{ LANGUAGE_CODE }}/reports">{% translate "reports" %}</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/{{ LANGUAGE_CODE }}/about">{% translate "about_project" %}</a></li>
+                  <li class="nav-item dropdown">
+                 </ul>
+                  </li>
+                </ul>
+    
+              </nav>
+            </div>  
+         </div> 
+         <div  class="divtdr" > 
+         <form action="{% url 'set_language' %}" method="post" id="form_lang" name="form_lang">{% csrf_token %}
+             <input name="next" type="hidden" value="{{ redirect_to }}">
+             <select id="lang" name="language" hidden>
+                 {% get_current_language as LANGUAGE_CODE %}
+                 {% get_available_languages as LANGUAGES %}
+                 {% get_language_info_list for LANGUAGES as languages %}
+
+                 {% for language in languages %}
+                     <option id="lang" value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                         {{ language.name_local }} ({{ language.code }})
+                     </option>
+                 {% endfor %}
+
+             </select>
+            
+         </form>
+         
+            <a href="#" onclick="document.getElementById('lang').value = 'uk';document.getElementById('form_lang').submit(); return false;"><img style="padding:8px;" src="/static/ua.png"</img></a>
+            <a href="#" onclick="document.getElementById('lang').value = 'en';document.getElementById('form_lang').submit(); return false;"><img style="padding:8px;" src="/static/en.png"</img></a>
+         
+         
+       {% if user.is_authenticated %}
+             <p>{% translate "logged_as" %}: <a href="/{{ LANGUAGE_CODE }}/user/">{{ user.get_username }} </a></p>
+             <p><a href="{% url 'logout'%}?next={{request.path}}">{% translate "logout" %}</a>  </p>         
+       {% else %} 
+ 
+           <p><a href="{% url 'login'%}?next={{request.path}}">{% translate "log_in" %}</a></p>
+           <p><a href="/signup">{% translate "sign_up" %}</a></p>              
+        {% endif %}  </div>
+        
+    </div>
+</div>
+    
+
+
+
+
+
+   {% block body %}
+
+   {% endblock %}   
+   
+<br>
+
+<div id="divtable">
+        <div class="divtr">   
+            {% if  LANGUAGE_CODE == 'uk' %}        
+            <div style="text-align:left;padding: 10px;font-size: 80%;" >Авторські права 2022 © <a href="https://itsolbi.com/ua/" target=_blank>ІТ рішення для бізнесу</a>. Усі права захищені.</div>     
+            {% else %} 
+            <div style="text-align:left;padding: 10px;font-size: 80%;" >Copyright 2022 © <a href="https://itsolbi.com/ua/" target=_blank>IT solutions for business</a>. All rights reserved.</div>     
+             {% endif %} 
+             
+        </div>    
+</div>
+
+
+   </body>
 </html>

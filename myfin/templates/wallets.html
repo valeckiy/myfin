@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+  
+{% block body %}
+<script src="{% static 'js/my-fin.js' %}" ></script>
+
+{% if user.is_authenticated %}
+
+
+
+<div class="row" >
+     <div class="col-sm-12 col-md-8 col-lg-6">
+        <p><h2>{% translate "wallet_managment" %}</h2></p>
+         <div id="divtable" style="width:98%;">
+         
+             <br>
+        
+             {% for w_row in el_wallets %}
+           
+             <div class="divtr" style="border-left:0px;border-right:0px;">       
+                <div class="divtd_no_border" style="width:45px;padding-left:10px;padding-top:5px;border-left:0px;">     
+                    <img width="32px" src="/static/icon/wallets/{{ w_row.image }}"  title="{{ w_row.name }}" alt="" />
+                </div>
+                <div style="padding-top:9px">{{ w_row.name }}</div> 
+                    
+                <div class="divtd_no_border" style="padding-left:20px;font-size: 75%;">
+                    - {% translate "balance" %}: 
+                    {% if w_row.total < 0 %} 
+                        <span style="color:#fa0707;font-size: 90%;"> <b> {{ w_row.total }} {% translate  w_row.currency %}</b> </span>
+                    {% else %}
+                        <span style="color:#0a4608;font-size: 90%;"> <b>+{{ w_row.total }}  {% translate  w_row.currency %}</b></span>
+                    {% endif %}        
+                </div>   
+             
+             
+                <div class="divtd" style="width:30px;border-left:0px;border-right:0px;">
+            
+                       <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                         <ul class="navbar-nav">
+                           <li class="nav-item dropdown"> 
+                             <a data-toggle="dropdown" href="#"> <img width="30px" src="/static/icon/button_down.png" title="" alt=""/></a>
+                             <ul class="dropdown-menu">
+                               <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/edit_wallet/?id={{ w_row.id }}&name={{ w_row.name }}
+                               &currency={{ w_row.currency }}&image_l={{ w_row.image }}">{% translate "edit" %}</a></li>
+                               
+                               <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/qwestion/?id={{ w_row.id }}&id_wallet={{ w_row.id_wallet }}
+                               &form_qwestion=1&text_qwestion=qwestion_delete_wallet
+                               &actions=wallet_delete&url_post=/wallets/">{% translate "delete" %}</a></li>
+                               <li style="text-align:center;">------------------------- </li>
+                               <li><a class="dropdown-item" href="/{{ LANGUAGE_CODE }}/transaction/?id_wallet={{ w_row.id }}">{% translate "show_transaction" %}</a></li>
+                             </ul>
+                           </li>
+                         </ul> 
+                       </nav>     
+                </div>         
+           </div>         
+            
+         {% endfor %}
+        </div>
+    </div>
+            
+
+    <div class="col-sm-12 col-md-8 col-lg-6">
+    <p><h4>{% translate "new_wallet" %}</h4></p>
+      <!-- add form new wallet -->
+        <div id="divtable" >
+             <div  style="border:0px;padding:10px;"> 
+                <div>         
+                   <form method="post" action='/{{ LANGUAGE_CODE }}/add_wallet/'>  
+                       {% csrf_token %}   
+                       {{ form_add_wallet.as_p }}          
+                       <div style="padding-left:30px;height:32px;"><img  style="border: 1px solid #555; width="32px" height="32px"id="img_to" name="img_to" src="/static/icon/blank.png"  />
+                       <span style="padding-left:4.2em;"><input value='{% translate "add" %}' type='SUBMIT' > </span></div>  
+                   </form>
+                </div>            
+            </div>
+       <div  style="padding:10px;border:0px;" >
+          {% for img in imgs %}                   
+              <input  type="hidden"  value='{{ img }}' />
+              <a href="#" onclick="SelectImage('{{ img }}','wallets');return false;"><img style="padding:8px;"  src="/static/icon/wallets/{{ img }}"</input></a>                
+          {% endfor%}
+      </div>
+   </div>
+ 
+ </div> 
+</div>
+{% endif %} 
+{% endblock %}
+

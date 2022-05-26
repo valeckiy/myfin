@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
+{% block body %}
+<script src="{% static 'js/my-fin.js' %}" ></script>
+
+
+
+<p><h2>{% translate "reports" %}:</h2></p>
+
+{% if user.is_authenticated %}
+
+<div class="row" >
+    <div class="col-sm-4 col-md-4 col-lg-3" style="margin:2px;">
+      
+        <div id="divtable">
+            <div class="divtr">  
+              <div class="divtd" >     
+               <form method='get' action='/{{ LANGUAGE_CODE }}/reports/'>                
+                  {% csrf_token %}  
+                  <style scoped="scoped" onload="ChangeTypeReport();return false;" >   </style>
+                  <p class="p_field" >
+                  {{ form_report.as_p }}
+                  </p>
+
+                      <p class="p_field"> <input value='{% translate "run_report" %}' type='SUBMIT'></p>
+                   </form>                  
+              </div>
+      
+          </div>
+     </div>
+
+ 
+  </div>
+   
+  {% if report_id == 1 or report_id == 5 %}
+    <div class="col-sm-8 col-md-6 col-lg-4" style="border:1px solid #000000;padding:2px;margin:2px;text-align:center;">
+  {% else %}   
+      <div class="col-sm-12 col-md-8 col-lg-4" style="border:1px solid #000000;padding:2px;margin:2px;text-align:center;">
+  {% endif %} 
+
+      {{ report_graph|safe }}  
+
+ </div>
+ 
+ {% if report_id == 1 or report_id == 5 %}
+     <div class="col-sm-8 col-md-6 col-lg-4"  style="margin:2px;">  
+       {% for w_row in data_svod %} 
+           <p style="padding-left:3px; height:40px;border: 2px solid {{ w_row.color}};padding:0;vertical-align: middle;">
+               <span style="background-color: {{ w_row.color}}; width:40px;height:100%;display:inline-block;vertical-align: middle;padding-left:3px;padding-top:2px;">
+                   <img style="padding:0px;" width="32px" src="/static/icon/{{ w_row.image }}"  title="{{ w_row.name }}"  /> </span>
+               {{ w_row.name}}: {{ w_row.suma}} {% translate  w_row.currency %}
+               </p>
+       {% endfor %}
+    {% else %}    
+      <div class="col-sm-8 col-md-6 col-lg-4" style="border:1px solid #000000;padding:10px;margin:2px;text-align:center;"> 
+  
+            
+
+      </div>   
+  {% endif %} 
+  
+   </div>
+ 
+ {% endif %} 
+
+{% endblock %}

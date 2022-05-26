@@ -1,25 +1,36 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
 {% block body %}
+<script src="{% static 'js/my-fin.js' %}" ></script>
 
-<h2>Зміна категорії</h2>
+<p><h2>{% translate "edit_category" %}</h2></p>
 
-   <form method='POST' action='/categories/'>
-   {% csrf_token %}
-        <input  type="hidden" id="id" name="id" value='{{ the_id }}' />
-        <input  type="hidden" id="actions" name="actions" value='category_edit' />
-        Назва:<input name='category_name' type='TEXT' width='30' value='{{ the_name }}' /> 
-        Напрямок:
-         <select name="category_direction">
-           <option value="Profit" {% if the_direction == 'Profit' %} selected {% endif %} >Дохід</option>
-           <option value="Expense" {% if the_direction != 'Profit' %} selected {% endif %}>Витрата</option>
-         </select>
-                
-      <input value='Змінити' type='SUBMIT'>
-   </form>
-    <form method='GET' action='/categories/'>
-    {% csrf_token %}
-          <p><input value='Повернутися назад' type='SUBMIT'></p>
-    </form>
+<!-- add form edit category -->
+
+
+<div id="divtable">
+    <br>
+    <div>       
+      <div> 
+       	<form method="post" action='/{{ LANGUAGE_CODE }}/edit_categories/'>
+       		{% csrf_token %}
+       		{{ form_edit_category.as_p }}
+          	<div style="padding-left:30px;"><img style="border: 1px solid #555; width="32px" height="32px"  id="img_to" name="img_to" src="/static/icon/category/{{ form_edit_category.image.value }}"  />
+              	<span style="padding-left:4.2em;"><input value='{% translate "edit" %}' type='SUBMIT' ></span>
+          	</div>    
+       	</form>
+     </div>
+     <div  style="padding:10px;border:0px;" >
+          {% for img in imgs %}                   
+              <input  type="hidden"  value='{{ img }}' />
+              <a href="#" onclick="SelectImage('{{ img }}','category');return false;"><img style="padding:8px;" src="/static/icon/category/{{ img }}"</input></a>                
+          {% endfor%}
+     </div>
+  </div>
+</div> 
 
 {% endblock %}

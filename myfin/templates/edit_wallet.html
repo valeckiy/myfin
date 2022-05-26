@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    
+{% block body %}
+
+<script src="{% static 'js/my-fin.js' %}" ></script>
+
+<p><h2>{% translate "edit_wallet" %}</h2></p>
+
+<!-- add wallet form --> 
+<div id="divtable">
+    <br>
+    <div>       
+      <div> 
+       	<form method="post" action='/{{ LANGUAGE_CODE }}/edit_wallet/'>
+       		{% csrf_token %}
+       		{{ form_edit_wallet.as_p }}
+          	<div style="padding-left:30px;"><img style="border: 1px solid #555; width="32px" height="32px" id="img_to" name="img_to" src="/static/icon/wallets/{{ form_edit_wallet.image.value }}"  />
+              	<span style="padding-left:4.2em;"><input value='{% translate "edit" %}' type='SUBMIT' ></span>
+          	</div>    
+       	</form>
+     </div>
+     <div  style="padding:10px;border:0px;" >
+          {% for img in imgs %}                   
+              <input  type="hidden"  value='{{ img }}' />
+              <a href="#" onclick="SelectImage('{{ img }}','wallets');return false;"><img style="padding:8px;" src="/static/icon/wallets/{{ img }}"</input></a>                
+          {% endfor%}
+     </div>
+  </div>
+</div> 
+
+{% endblock %}

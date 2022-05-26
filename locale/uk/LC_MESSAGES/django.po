@@ -1,0 +1,310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-21 10:47+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "English"
+msgstr ""
+
+msgid "Українська"
+msgstr ""
+
+msgid "text_logo"
+msgstr "Простий облік фінансів"
+
+msgid "create_wallet"
+msgstr "Новий гаманець"
+
+msgid "category_managment"
+msgstr "Категорії"
+
+msgid "transaction_managment"
+msgstr "Транзакції"
+
+msgid "logged_as"
+msgstr "Увійшли як"
+
+msgid "logout"
+msgstr "Вийти"
+
+msgid "first_name"
+msgstr "Ім'я"
+
+msgid "last_name"
+msgstr "Прізвище"
+
+# base.html
+msgid "main_login_or_register"
+msgstr "Щоб відобразити інформацію, потрібно увійти або зареєструватися"
+
+msgid "log_in"
+msgstr "Авторизація"
+
+msgid "sign_up"
+msgstr "Реєстрація"
+
+# index.html
+msgid "go_main"
+msgstr "Повернутися на головну"
+
+msgid "your_finances"
+msgstr "Ваші фінанси"
+
+msgid "name"
+msgstr "Назва"
+
+msgid "wallet"
+msgstr "Гаманець"
+
+msgid "balance"
+msgstr "Баланс"
+
+msgid "currency"
+msgstr "Валюта"
+
+# Transaction
+msgid "add_transaction"
+msgstr "Додати транзакцію"
+
+msgid "recent_transactions"
+msgstr "Останні транзакції"
+
+msgid "date"
+msgstr "Дата"
+
+msgid "category"
+msgstr "Категорія"
+
+msgid "sum"
+msgstr "Сума"
+
+msgid "comment"
+msgstr "Примітка"
+
+msgid "delete"
+msgstr "Видалити"
+
+msgid "add_new_Profit"
+msgstr "Додати нове поступлення грошей"
+
+msgid "add_new_Expense"
+msgstr "Додати нову витрату грошей"
+
+msgid "title_exchange"
+msgstr "Додати новий переказ грошей між гаманцями"
+
+msgid "exchange"
+msgstr "Переказ"
+
+msgid "start_balance"
+msgstr "Залишок"
+
+# Wallet
+msgid "delete_wallet"
+msgstr "Видалити гаманець"
+
+msgid "wallet_managment"
+msgstr "Гаманці"
+
+msgid "new_wallet"
+msgstr "Новий гаманець"
+
+msgid "edit_wallet"
+msgstr "Редагування гаманця"
+
+msgid "qwestion_delete_wallet"
+msgstr "Ви дійсно хочете видалити гаманець?"
+
+msgid "go_wallet"
+msgstr "Повернутись до списку гаманців"
+
+# login / signup
+msgid "login_title"
+msgstr "Будь ласка введіть дані для авторизації"
+
+msgid "login_name"
+msgstr "Ім'я (логін)"
+
+msgid "login_password"
+msgstr "Пароль"
+
+# Categories
+msgid "Category_title"
+msgstr "Категорії доходів та витрат"
+
+msgid "new_category"
+msgstr "Нова категорія"
+
+msgid "edit_category"
+msgstr "Редагування категорії"
+
+msgid "go_category"
+msgstr "Повернутись до списку категорій"
+
+msgid "direction"
+msgstr "Напрямок"
+
+msgid "profit"
+msgstr "Дохід"
+
+msgid "cost"
+msgstr "Витрати"
+
+msgid "excange"
+msgstr "Обмін"
+
+msgid "wallet_from"
+msgstr "З гаманця"
+
+msgid "wallet_to"
+msgstr "На гаманець"
+
+msgid "sum_from"
+msgstr "Сума -"
+
+msgid "sum_to"
+msgstr "Сума +"
+
+msgid "course"
+msgstr "Крос-курс"
+
+#reports
+msgid "cost_currancy_last_month"
+msgstr "Звіт по витратам за останні 7 днів"
+
+# others
+msgid "add"
+msgstr "Додати"
+
+msgid "edit"
+msgstr "Редагувати"
+
+msgid "close"
+msgstr "Закрити"
+
+msgid "qwestion_delete_transaction"
+msgstr "Ви дійсно хочете видалити транзакцію?"
+
+msgid "qwestion_delete_category"
+msgstr "Ви дійсно хочете видалити категорію?"
+
+msgid "yes"
+msgstr "Так"
+
+msgid "no"
+msgstr "Ні"
+
+msgid "no_selection"
+msgstr "Немає відбору"
+
+msgid "show_all"
+msgstr "Показати всі"
+
+msgid "select_transactions"
+msgstr "Відібрати транзакції"
+
+msgid "about_project"
+msgstr "Про проект"
+
+msgid "email_exist"
+msgstr "Такий e:mail вже існує"
+
+msgid "profil"
+msgstr "Ваш профіль"
+
+msgid "edit_profil"
+msgstr "Редагування профілю"
+
+msgid "go_profil"
+msgstr "о профілю"
+
+msgid "main_currancy"
+msgstr "Основна валюта"
+
+msgid "UAH"
+msgstr "₴"
+
+msgid "USD"
+msgstr "$"
+
+msgid "EUR"
+msgstr "€"
+
+# menu
+msgid "menu_do"
+msgstr "Дія"
+
+# reports
+msgid "reports"
+msgstr "Звіти"
+
+msgid "type_report"
+msgstr "Звіт"
+
+msgid "cost_category"
+msgstr "Витрати по категоріям"
+
+msgid "profit_category"
+msgstr "Доходи по категоріям"
+
+msgid "cost_profit_day"
+msgstr "Щоденні доходи і витрати"
+
+msgid "cost_profit_month"
+msgstr "Щомісячні доходи і витрати"
+
+msgid "cost_profit_year"
+msgstr "Щорічні доходи і витрати"
+
+msgid "total_cost"
+msgstr "Загальні витрати"
+
+msgid "total_profit"
+msgstr "Загальний дохід"
+
+msgid "date_start"
+msgstr "Період з"
+
+msgid "date_end"
+msgstr "до"
+
+msgid "run_report"
+msgstr "Сформувати"
+
+msgid "cost_day_graph"
+msgstr "Щоденні витрати (останні 7 днів)"
+
+msgid "profit_day_graph"
+msgstr "Щоденні доходи (останні 7 днів)"
+
+msgid "cost_month_graph"
+msgstr "Щомісячні витрати"
+
+msgid "profit_month_graph"
+msgstr "Щомісячний дохід"
+
+msgid "cost_year_graph"
+msgstr "Щорічні витрати"
+
+msgid "profit_year_graph"
+msgstr "Щорічний дохід"
+
+msgid "period_last_six_month"
+msgstr "Останні 6 місяців"
+
+msgid "period_this_years"
+msgstr "З початку року"
+
+msgid "period_last_years"
+msgstr "Минулий рік"
+
+msgid "show_transaction"
+msgstr "Показати транзакції"
