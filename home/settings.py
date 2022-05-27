@@ -132,6 +132,7 @@ STATIC_URL = 'static/'
 #STATIC_ROOT = "/home/ubuntu/home/myfin/myfin/static/"
 
 STATIC_ROOT = BASE_DIR / "myfin/static"
+
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
