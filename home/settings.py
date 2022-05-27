@@ -131,8 +131,9 @@ STATIC_URL = 'static/'
 
 #STATIC_ROOT = "/home/ubuntu/home/myfin/myfin/static/"
 
-STATIC_ROOT = BASE_DIR / "myfin/static"
-
+#STATIC_ROOT = BASE_DIR / "myfin/static"
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -143,4 +144,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
+
 
